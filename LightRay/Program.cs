@@ -14,7 +14,6 @@ namespace OpenXmlSetBookmarkText
 {
     class Program
     {
-        
         private BasicHttpBinding basic_binding = new BasicHttpBinding(BasicHttpSecurityMode.None);
 
         // Specify the web service endpoint (replace with the actual URL of your WSDL)        
@@ -33,7 +32,14 @@ namespace OpenXmlSetBookmarkText
             string newText = "This is the new text inside the bookmark."; // The new text to insert
 
 
-            
+            testFunction();
+            /*
+            WebServiceASMX_ViaClassGenerated();
+            int result = WebServiceASMX_ViaServiceReference().Result;
+            Console.WriteLine(result);
+            */
+
+
             string slipResult = RestAPIExample("https://api.adviceslip.com/advice/1").Result;
             RootSlip slipObj = JsonConvert.DeserializeObject<RootSlip>(slipResult);
             Console.WriteLine(slipObj.slip.id);
@@ -52,6 +58,10 @@ namespace OpenXmlSetBookmarkText
 
         }
 
+        private void testFunction()
+        {
+            // abc
+        }
 
         private async Task<string> RestAPIExample(string url)
         {
