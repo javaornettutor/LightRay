@@ -14,6 +14,7 @@ namespace OpenXmlSetBookmarkText
 {
     class Program
     {
+
         //private ServiceReference1.CalculatorSoapClient client = new CalculatorSoapClient();
         private BasicHttpBinding basic_binding = new BasicHttpBinding(BasicHttpSecurityMode.None);
 
@@ -35,7 +36,7 @@ namespace OpenXmlSetBookmarkText
             string bookmarkName = "bm1"; // The name of the bookmark to update
             string newText = "This is the new text inside the bookmark."; // The new text to insert
 
-
+            testFunction();
             /*
             WebServiceASMX_ViaClassGenerated();
             int result = WebServiceASMX_ViaServiceReference().Result;
@@ -60,6 +61,10 @@ namespace OpenXmlSetBookmarkText
 
         }
 
+        private void testFunction()
+        {
+            // abc
+        }
 
         private async Task<string> RestAPIExample(string url)
         {
