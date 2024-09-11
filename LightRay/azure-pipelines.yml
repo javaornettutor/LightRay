@@ -1,0 +1,45 @@
+﻿# File: azure-pipelines.yml
+
+trigger:
+  branches:
+    include:
+      - master  # Trigger pipeline only on pushes to master branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  # Checkout the code from GitHub
+  - checkout: self
+
+  # Step 1: Install any dependencies (you can customize this for your stack)
+  - script: |
+      echo "Installing dependencies..."
+      # Add installation commands here (e.g., npm install, dotnet restore, etc.)
+    displayName: 'Install Dependencies'
+
+  # Step 2: Build the project (customize based on the technology you're using)
+  - script: |
+      echo "Building the project..."
+      # Add build commands here (e.g., npm run build, dotnet build, etc.)
+    displayName: 'Build Project'
+
+  # Step 3: Run Tests (optional)
+  - script: |
+      echo "Running tests..."
+      # Add test commands here (e.g., npm test, dotnet test, etc.)
+    displayName: 'Run Tests'
+
+  # Step 4: Push to Azure DevOps Artifacts or deploy (optional)
+  # For example, you can copy artifacts, deploy, or trigger releases
+
+  # Push to Azure Repos (only for scenarios where you push to another repository)
+  # This requires setting up a service connection and authentication.
+
+  - script: |
+      echo "Push changes to Azure DevOps..."
+      git config user.name "Azure Pipelines"
+      git config user.email "wangwilliam2010@gmail.com"
+      git remote add azdo https://wangwilliam2010@dev.azure.com/wangwilliam2010/LightRay/_git/LightRay
+      git push azdo master
+    displayName: 'Push to Azure DevOps'
