@@ -30,7 +30,7 @@ namespace OpenXmlSetBookmarkText
             string filePath = "C://Temp//Test.docx";
             string bookmarkName = "bm1"; // The name of the bookmark to update
             string newText = "This is the new text inside the bookmark."; // The new text to insert
-
+            testfunction2();
 
             testFunction();
             /*
@@ -58,9 +58,15 @@ namespace OpenXmlSetBookmarkText
 
         }
 
+
+        private void testfunction2()
+        {
+            throw new NotImplementedException();
+
         private void testFunction()
         {
             // abc
+
         }
 
         private async Task<string> RestAPIExample(string url)
